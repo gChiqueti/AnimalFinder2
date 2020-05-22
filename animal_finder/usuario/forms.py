@@ -11,11 +11,23 @@ class RegistrationForm(UserCreationForm):
         fields = ("email", "nome", "telefone", "password1", "password2")
 
 
+
 class AuthenticationForm(forms.ModelForm):
-    password = forms.CharField(label='password', widget=forms.PasswordInput)
+    password = forms.CharField(
+                   label='password',
+                   widget=forms.PasswordInput(
+                            attrs={'placeholder': 'Digite sua senha',
+                                   'class': 'input'}))
+    email = forms.EmailField(
+                       label='email',
+                       widget=forms.EmailInput(
+                                attrs={'placeholder': 'Digite seu e-email',
+                                       'class': 'input'}))
     class Meta:
         model = Dono
         fields = ['email', 'password']
+
+
 
     def clean(self):
         if not self.is_valid():

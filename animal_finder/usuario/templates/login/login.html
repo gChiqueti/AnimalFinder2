@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    {% load static %}
+    <link href="{% static 'login_style.css' %}"  rel="stylesheet">
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <div class="insert_data">
-        <h1>Login</h1>
 
-        <form method="post">
-          {% csrf_token %}
-          <p>Email<br>{{ login_form.email }}</p>
-          <p>Senha<br>{{ login_form.password }} </p>
+        <div class="login-page">
+          <div class="form">
+            <h1>Login</h1>
+            <form method="post">
+              {% csrf_token %}
+              {{ login_form.email }}
+              <br><br>
+              {{ login_form.password }}
+              <br><br>
 
 
-          {% for field in login_form %}
-            {% for error in field.errors %}
-              <p style="color: red;">{{error}}</p>
-            {% endfor %}
-          {% endfor %}
-          <br>
-          <button type="submit" class="submit">Login</button>
-        </form>
+              {% for field in login_form %}
+                {% for error in field.errors %}
+                  <p style="color: red;">{{error}}</p>
+                {% endfor %}
+              {% endfor %}
+              <br>
+              <button type="submit" class="submit">Login</button>
+            </form>
+         </div>
+        </div>
     </div>
   </body>
 </html>
