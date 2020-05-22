@@ -1,5 +1,8 @@
 from django.db import models
 from usuario.models import Dono
+from django.utils.deconstruct import deconstructible
+import time
+from uuid import uuid4
 
 STATUS_ANIMAL = (
     (1, "Perdido"),
@@ -7,9 +10,28 @@ STATUS_ANIMAL = (
     (3, "Encontrado")
 )
 
+# criado para alterar o nome da imagem a ser salva
+@deconstructible
+class UploadToPathAndRename(object):
+
+    def __init__(self, path):
+        self.sub_path = path
+
+    def __call__(self, instance, filename):
+        ext = filename.split('.')[-1]
+        # get filename
+        if instance.pk:
+            filename = '{}.{}'.format(instance.pk, ext)
+        else:
+            # set filename as random string
+            filename = '{}.{}'.format(uuid4().hex, ext)
+        # return the whole path to the file
+        return self.sub_path + filename
+
+
 # Create your models here.
 class Animal(models.Model):
-    foto  = models.ImageField()
+    foto  = models.ImageField(upload_to=UploadToPathAndRename('{}'.format(time.strftime("%Y_%m_%d_"))))
     nome  = models.CharField(max_length=100)
     idade = models.CharField(max_length=3, blank=True)
     cidade_desaparecimento = models.CharField(max_length=50)
