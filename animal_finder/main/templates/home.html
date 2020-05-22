@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>home</title>
-  </head>
-  <body>
-    <h1>Bem vindo a pagina principal</h1>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Animais perdidos</h1>
+
+
+  {% for animal in animais_cadastrados %}
+  {% if animal.status == 1 %}
+  <div class="umAnimalPerdido">
+        <div class="imagem">
+          {% if animal.foto %}
+  {% load static %}
+  <img src="{{ animal.foto.url }}" width=50%>
+  {% endif %}
+  </div>
+
+  <div class="textos">
+  <p>Nome: {{animal.nome}}</p>
+  <p>Idade: {{animal.idade}}</p>
+  <p>Cidade: {{animal.cidade_desaparecimento}}</p>
+  <p>Estado: {{animal.estado_desaparecimento}}</p>
+  <p>Informações: {{animal.informacoes_extras}}</p>
+  <form action="{%  url 'home' %}">
+  <input class="encontrei" type="submit" value="Encontrei" />
+  </form>
+  </div>
+
+  </div>
+  {% endif %}
+  {% endfor %}
+
+
+  {% if animais_cadastrados.has_other_pages %}
+    <ul class="pagination">
+  {% if animais_cadastrados.has_previous %}
+    <li><a href="?page={{ animais_cadastrados.previous_page_number }}">&laquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+  {% for i in animais_cadastrados.paginator.page_range %}
+    {% if animais_cadastrados.number == i %}
+  <li class="active"><span>{{ i }} <span class="sr-only">(Atual)</span></span></li>
+    {% else %}
+  <li><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+  {% endfor %}
+  {% if animais_cadastrados.has_next %}
+    <li><a href="?page={{ animais_cadastrados.next_page_number }}">&raquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+    </ul>
+  {% endif %}
+{% endblock content %}

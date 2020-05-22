@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class DonoManager(BaseUserManager):
     def create_user(self, email, nome, telefone, password=None):
-        if not email:    raise ValueError("Usuário precisa ter um email")
+        if not email: raise ValueError("Usuário precisa ter um email")
         if not nome: raise ValueError("Usuário precisa ter um nome")
         if not telefone: raise ValueError("Usuário precisa ter um telefone")
         user = self.model(email = self.normalize_email(email),
