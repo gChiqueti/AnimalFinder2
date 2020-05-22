@@ -5,10 +5,26 @@
     <title>Registrar usuário</title>
   </head>
   <body>
-    <form method="POST" class="form-group">
-      	{% csrf_token %}
-      	{{ form }}
-      	<button type="submit" class="btn btn-success">Register</button>
-    </form>
+    <div class="insert_data">
+        <h1>Registrar</h1>
+
+        <form method="post">
+          {% csrf_token %}
+          <p>Email:<br>{{registration_form.email}}</p>
+          <p>Usuário:<br>{{registration_form.username}}</p>
+          <p>Telefone:<br>{{registration_form.telefone}}</p>
+          <p>Senha:<br>{{registration_form.password1}}</p>
+          <p>Confirmação de senha:<br>{{registration_form.password2}}</p>
+
+          {% for field in registration_form %}
+            {% for error in field.errors %}
+              <p style="color: red;">{{error}}</p>
+            {% endfor %}
+          {% endfor %}
+          <br>
+          <button type="submit">Registrar</button>
+
+        </form>
+    </div>
   </body>
 </html>
