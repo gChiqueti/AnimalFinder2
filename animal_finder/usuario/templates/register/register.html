@@ -11,7 +11,7 @@
         <form method="post">
           {% csrf_token %}
           <p>Email:<br>{{registration_form.email}}</p>
-          <p>Usuário:<br>{{registration_form.username}}</p>
+          <p>Usuário:<br>{{registration_form.nome}}</p>
           <p>Telefone:<br>{{registration_form.telefone}}</p>
           <p>Senha:<br>{{registration_form.password1}}</p>
           <p>Confirmação de senha:<br>{{registration_form.password2}}</p>

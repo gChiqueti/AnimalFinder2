@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect, reverse
-from .forms import RegisterForm
+from .forms import RegistrationForm
 # Create your views here.
 
 # Create your views here.
 def register(response):
 
     if response.method == "POST":
-        form = RegisterForm(response.POST)
+        form = RegistrationForm(response.POST)
         if form.is_valid():
             form.save()
         return redirect("home")
     else:
-        form = RegisterForm()
+        form = RegistrationForm()
 
     return render(response, "register/register.html", {"registration_form":form})

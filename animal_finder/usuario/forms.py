@@ -1,12 +1,10 @@
+from .models import Dono
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
-
-class RegisterForm(UserCreationForm):
-    email = forms.EmailField()
-    telefone = forms.IntegerField(max_value=99999999999)
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
 
     class Meta:
-    	model = User
-    	fields = ["username", "telefone", "email", "password1", "password2"]
+        model = Dono
+        fields = ("email", "nome", "telefone", "password1", "password2")
