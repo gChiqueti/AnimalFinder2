@@ -46,7 +46,7 @@ def meus_animais(request):
 def animal_edit(request, id=None):
     animal = get_object_or_404(Animal, id=id)
     if request.method == 'POST':
-        user_form = AnimalForm(request.POST, instance=animal)
+        user_form = AnimalForm(request.POST, request.FILES, instance=animal)
         if user_form.is_valid():
             user_form.save()
             return HttpResponseRedirect(reverse('meus_animais'))
