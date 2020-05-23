@@ -16,9 +16,7 @@
             <form method="post">
               {% csrf_token %}
               {{ login_form.email }}
-              <br><br>
               {{ login_form.password }}
-              <br><br>
 
 
               {% for field in login_form %}

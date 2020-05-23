@@ -24,7 +24,9 @@ class UploadToPathAndRename(object):
             filename = '{}.{}'.format(instance.pk, ext)
         else:
             # set filename as random string
-            filename = '{}.{}'.format(uuid4().hex, ext)
+            filename_add = '{}'.format(uuid4().hex)
+            filename_add = filename_add[0:9]
+            filename = '{}.{}'.format(filename_add, ext)
         # return the whole path to the file
         return self.sub_path + filename
 
@@ -38,7 +40,7 @@ class Animal(models.Model):
     estado_desaparecimento = models.CharField(max_length=50)
     status = models.IntegerField(choices=STATUS_ANIMAL, default=1, blank=True)
     dono = models.ForeignKey(Dono, on_delete=models.CASCADE,  null=True)
-    informacoes_extras = models.CharField(max_length=250, blank=True)
+    informacoes_extras = models.TextField(max_length=250, blank=True)
 
     def __str__(self):
         return self.nome
@@ -48,6 +50,6 @@ class Contato(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=20)
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True)
-    
+
     def __str__(self):
         return self.nome

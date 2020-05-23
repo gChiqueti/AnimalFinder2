@@ -6,20 +6,23 @@
     <link href="{% static 'general_style.css' %}"  rel="stylesheet">
     {% load static %}
     <link href="{% static 'login_style.css' %}"  rel="stylesheet">
+
 {% endblock css %}
 
 
 {% block content %}
-    <div class="insert_data">
+    <div class="form-page">
+      <div class="form">
         <h1>Registrar</h1>
 
         <form method="post">
           {% csrf_token %}
-          <p>Email:<br>{{registration_form.email}}</p>
-          <p>Usuário:<br>{{registration_form.nome}}</p>
-          <p>Telefone:<br>{{registration_form.telefone}}</p>
-          <p>Senha:<br>{{registration_form.password1}}</p>
-          <p>Confirmação de senha:<br>{{registration_form.password2}}</p>
+          {{registration_form.email}}
+          {{registration_form.nome}}
+          {{registration_form.telefone}}
+          {{registration_form.password1}}
+          {{registration_form.password2}}
+
 
           {% for field in registration_form %}
             {% for error in field.errors %}
@@ -30,5 +33,6 @@
           <button type="submit">Registrar</button>
 
         </form>
-    </div>
+      </div>
+     </div>
 {% endblock content %}

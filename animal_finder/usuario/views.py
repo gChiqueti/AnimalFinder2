@@ -7,16 +7,24 @@ from .forms import AuthenticationForm
 
 # Create your views here.
 def register(response):
-
+    context = {}
     if response.method == "POST":
         form = RegistrationForm(response.POST)
         if form.is_valid():
             form.save()
-        return redirect("home")
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            account = authenticate(email=email, password=raw_password)
+            login(request, account)
+            return redirect("home")
+        else:
+            print(form.errors)
+            context['registration_form'] = form
     else:
         form = RegistrationForm()
+        context['registration_form'] = form
 
-    return render(response, "register/register.html", {"registration_form":form})
+    return render(response, "register/register.html", context)
 
 
 def user_login(request):

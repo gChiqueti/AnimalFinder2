@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    {% load static %}
+    <link href="{% static 'one_animal_style.css' %}"  rel="stylesheet">
+{% endblock css %}
 
 {% block content %}
 <br>
     <form method="POST">
         {% csrf_token %}
         <table class="table table-bordered table-light">
-            {{user_form.as_table}}
+            {{user_form.as_p}}
         </table>
         <br>
         <button type="submit" class="btn btn-warning float-right">Atualizar animal</button>

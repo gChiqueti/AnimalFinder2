@@ -51,10 +51,10 @@ def animal_edit(request, id=None):
             user_form.save()
             return HttpResponseRedirect(reverse('meus_animais'))
         else:
-            return render(request, 'editar_animal.html', {"user_form": user_form})
+            return render(request, 'cadastrar_animal.html', {"form": user_form})
     else:
         user_form = AnimalForm(instance=animal)
-        return render(request, 'editar_animal.html', {"user_form": user_form})
+        return render(request, 'cadastrar_animal.html', {"form": user_form})
 
 
 @login_required

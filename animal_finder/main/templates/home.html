@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block css %}
+    {% load static %}
+    <link href="{% static 'one_animal_style.css' %}"  rel="stylesheet">
+
 {% endblock css %}
 
 
@@ -10,28 +13,30 @@
 
 
   {% for animal in animais_cadastrados %}
-  {% if animal.status == 1 %}
-  <div class="umAnimalPerdido">
-        <div class="imagem">
-          {% if animal.foto %}
-  {% load static %}
-  <img src="{{ animal.foto.url }}" width=50%>
-  {% endif %}
-  </div>
+    {% if animal.status == 1 %}
+      <div id="container_animal">
 
-  <div class="textos">
-  <p>Nome: {{animal.nome}}</p>
-  <p>Idade: {{animal.idade}}</p>
-  <p>Cidade: {{animal.cidade_desaparecimento}}</p>
-  <p>Estado: {{animal.estado_desaparecimento}}</p>
-  <p>Informações: {{animal.informacoes_extras}}</p>
-  <form action="{%  url 'animal_encontrado' animal.id %}">
-  <input class="encontrei" type="submit" value="Encontrei" />
-  </form>
-  </div>
 
-  </div>
-  {% endif %}
+            <div class="textos_animal">
+                <h1>{{animal.nome}}, {{animal.idade}} ano(s)</h1>
+                <h2>Desaparecido em {{animal.cidade_desaparecimento}}
+                    {{animal.estado_desaparecimento}}</h2>
+                <p>Informações: {{animal.informacoes_extras}}</p>
+                <div class="link_encontrei_animal">
+                  <form action="{%  url 'animal_encontrado' animal.id %}">
+                      <input class="encontrei" type="submit" value="Encontrei" />
+                  </form>
+                </div>
+            </div>
+
+            <div class="imagem_animal">
+              {% if animal.foto %}
+                {% load static %}
+                <img src="{{ animal.foto.url }}" width=50%>
+              {% endif %}
+            </div>
+      </div>
+    {% endif %}
   {% endfor %}
 
 

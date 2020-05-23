@@ -1,34 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
+{% extends 'base.html' %}
 
-		<meta charset="utf-8">
-		<title>Cadastro</title>
-		
-	</head>
-	<body>
 
+{% block css %}
+    {% load static %}
+    <link href="{% static 'login_style.css' %}"  rel="stylesheet">
+{% endblock css %}
+
+
+{% block content %}
 		<div class="insert_data">
-			<h1>Cadastro de animal desaparecido</h1>
+			<div class="form-page">
+				<div class="form">
+					<h1>Cadastro de animal desaparecido</h1>
 
-			<form method="POST" enctype="multipart/form-data">
-				{% csrf_token %}
-				<p>Foto:<br>{{form.foto}}</p>
-				<p>Nome do animal:<br>{{form.nome}}</p>
-				<p>Idade (opcional):<br>{{form.idade}}</p>
-				<p>Cidade de desaparecimento:<br>{{form.cidade_desaparecimento}}</p>
-				<p>Estado de desaparecimento:<br>{{form.estado_desaparecimento}}</p>
-				<p>Informações adicionais (opcional):<br>{{form.informacoes_extras}}</p>
+					<form method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<p>Foto:<br>{{form.foto}}</p>
+						{{form.nome}}
+						{{form.idade}}
+						{{form.cidade_desaparecimento}}
+						{{form.estado_desaparecimento}}
+						{{form.informacoes_extras}}
 
-				{% for field in registration_form %}
-					{% for error in field.errors %}
-						<p style="color: red;">{{error}}</p>
-					{% endfor %}
-				{% endfor %}
-				<br>
-				<button type="submit">Cadastrar animal</button>
+						{% for field in registration_form %}
+							{% for error in field.errors %}
+								<p style="color: red;">{{error}}</p>
+							{% endfor %}
+						{% endfor %}
+						<br>
+						<button type="submit">Cadastrar animal</button>
 			</form>
 		</div>
-
-	</body>
-</html>
+	</div>
+ </div>
+{% endblock content %}

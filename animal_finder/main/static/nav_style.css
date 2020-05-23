@@ -1,13 +1,23 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+}
+
 .nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
+
+
 }
 
 .nav li {
   float: left;
+  border-right: 1px solid #bbb;
 }
 
 .nav li a {
@@ -17,6 +27,7 @@
   padding: 14px 16px;
   text-decoration: none;
 }
+
 
 .nav li p {
 	padding: 0px 14px 0px 16px;

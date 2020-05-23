@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    {% load static %}
+    <link href="{% static 'login_style.css' %}"  rel="stylesheet">
+{% endblock css %}
+
+
 {% block content %}
   <div class="insert_data">
-  <h1>DADOS PARA CONTATO</h1>
-
-      <form method="post">
-  {% csrf_token %}
-  <p>Nome:<br>{{form.nome}}</p>
-  <p>Telefone:<br>{{form.telefone}}</p>
-  <br>
-  <button type="submit" class="btn btn-warning float-right">Enviar contato para o dono</button>
+    <div class="form-page">
+      <div class="form">
+        <h1>DADOS PARA CONTATO</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{form.nome}}
+          {{form.telefone}}
+          <button type="submit" class="btn btn-warning float-right">Enviar contato para o dono</button>
         </form>
     </div>
+  </div>
+ </div>
 
 {% endblock content %}

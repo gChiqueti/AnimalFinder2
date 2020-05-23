@@ -4,11 +4,47 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
+    error_messages = {
+        'password_mismatch': "As senhas não conferem",
+    }
+
+
+    email = forms.EmailField(help_text='Required. Add a valid email address',
+                            label='email',
+                            widget=forms.EmailInput(
+                                     attrs={'placeholder': 'Digite seu e-email',
+                                            'class': 'input'}))
+    nome = forms.CharField(label='password',
+                           widget=forms.TextInput(
+                                attrs={'placeholder': 'Nome completo',
+                                       'class': 'input'}))
+    telefone = forms.IntegerField(label='telefone',
+                                  widget=forms.NumberInput(
+                                    attrs={'placeholder': 'Telefone',
+                                           'class': 'input'}))
+
+    password1 = forms.CharField(label='password',
+                                widget=forms.PasswordInput(
+                                        attrs={'placeholder': 'Senha',
+                                               'class': 'input'}))
+    password2 = forms.CharField(label='password',
+                                widget=forms.PasswordInput(
+                                    attrs={'placeholder': 'Confirme a senha',
+                                           'class': 'input'}))
 
     class Meta:
         model = Dono
         fields = ("email", "nome", "telefone", "password1", "password2")
+
+
+    # verificar os inputs (se as senhas batem)
+    def clean(self):
+            cleaned_data = super(RegistrationForm, self).clean()
+            password = cleaned_data.get("password1")
+            confirm_password = cleaned_data.get("password2")
+
+            if password != confirm_password:
+                raise forms.ValidationError("As senhas nao conferem")
 
 
 

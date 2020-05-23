@@ -2,18 +2,20 @@
 <html>
 
 <head>
-  {% load static %}
-  <link href="{% static 'nav_style.css' %}"  rel="stylesheet">
+
   {% load static %}
   <link href="{% static 'general_style.css' %}"  rel="stylesheet">
 
-    {% block css %}
-    {% endblock css %}
+  {% block css %}
+  {% endblock css %}
+
+  {% load static %}
+  <link href="{% static 'nav_style.css' %}"  rel="stylesheet">
 
     <div class="nav">
       <ul>
       {% if request.user.is_authenticated %}
-          <li><p>Bem vindo, {{request.user.username}}</p></li>
+          <li><p>Bem vindo, {{request.user.nome}}</p></li>
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
           <li><a href="{% url 'meus_animais' %}">Meus animais</a></li>
@@ -21,10 +23,9 @@
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'register' %}">Registrar</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
-  		{% endif %}
+      {% endif %}
       </ul>
     </div>
-
 </head>
 
 <body>
