@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+{% extends 'base.html' %}
+
+
+{% block css %}
     {% load static %}
     <link href="{% static 'login_style.css' %}"  rel="stylesheet">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+{% endblock css %}
+
+
+{% block content %}
     <div class="insert_data">
 
-        <div class="login-page">
+        <div class="form-page">
           <div class="form">
             <h1>Login</h1>
             <form method="post">
@@ -31,5 +32,4 @@
          </div>
         </div>
     </div>
-  </body>
-</html>
+{% endblock content %}
