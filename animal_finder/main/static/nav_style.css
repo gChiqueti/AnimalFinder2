@@ -11,13 +11,12 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
-
-
 }
 
 .nav li {
   float: left;
   border-right: 1px solid #bbb;
+  height: 70 px;
 }
 
 .nav li a {
