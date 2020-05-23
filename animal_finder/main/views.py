@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def home(request):
-    animais_cadastrados = Animal.objects.all()
+    animais_cadastrados =  [i for i in Animal.objects.all() if i.status == 1]
     page = request.GET.get('page', 1)
     paginator = Paginator(animais_cadastrados, 5)
     try:

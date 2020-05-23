@@ -13,10 +13,7 @@
 
 
   {% for animal in animais_cadastrados %}
-    {% if animal.status == 1 %}
       <div id="container_animal">
-
-
             <div class="textos_animal">
                 <h1>{{animal.nome}}, {{animal.idade}} ano(s)</h1>
                 <h2>Desaparecido em {{animal.cidade_desaparecimento}}
@@ -36,7 +33,6 @@
               {% endif %}
             </div>
       </div>
-    {% endif %}
   {% endfor %}
 
 
