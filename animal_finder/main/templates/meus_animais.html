@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <br>
+  <form action="{%  url 'novo_animal' %}">
+    <input type="submit" value="Cadastrar novo animal" />
+  </form>
+  <br>
+
+  <table border="1" width="100%">
+    <thead>
+      <tr>
+        <th>Nome</th>
+
+        <th>Status</th>
+        <th>Lista de contatos</th>
+
+      </tr>
+      </thead>
+    <tbody>
+
+    {% for animal, contatos in animais %}
+      <tr>
+      <td>
+        {{animal.nome}}
+      </td>
+
+      <td>
+        {{animal.get_status_display}}
+      </td>
+
+      <td>
+        {% for contato in contatos %}
+          {{contato.nome}}
+          {{contato.telefone}}
+          <br>
+        {% endfor %}
+      </td>
+
+      <td><a class="btn btn-warning" href="{%  url 'animal_edit' animal.id %}">Edit</a>
+            </td>
+			<td><a class="btn btn-danger" href="{%  url 'animal_delete' animal.id %}">Delete</a>
+			</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+
+{% endblock content %}

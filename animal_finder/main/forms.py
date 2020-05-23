@@ -1,5 +1,5 @@
 from django import forms
-from .models import Animal
+from .models import Animal, Contato
 
 class AnimalForm(forms.ModelForm):
     class Meta:
@@ -20,3 +20,10 @@ class AnimalForm(forms.ModelForm):
             'estado_desaparecimento': forms.TextInput(attrs={'placeholder': 'Digite o estado do desaparecimento', 'class': 'input'}),
             'informacoes_extras': forms.TextInput(attrs={'placeholder': 'Digite alguma informação extra', 'class': 'input'}),
         }
+
+class ContatoForm(forms.ModelForm):
+    class Meta:
+        model = Contato
+        fields = ['nome',
+                  'telefone'
+                   ]
