@@ -83,18 +83,26 @@
 @media only screen and (max-width: 600px) {
 	.imagem_animal {
 		display: block;
-		height: 50%;
+		height: 200px;
 		width: 90%
 	}
 
 	.textos_animal {
 		display: block;
 		width: 90%;
+		padding-bottom: 60px;
 	}
 
 	#container_animal{
-		height: 500px;
+		height: auto;
 		width: 90%;
 		margin: 5% auto;
 	}
+
+	.textos_animal .link_encontrei_animal {
+	  left:35%;
+	}
+
+
+
 }
