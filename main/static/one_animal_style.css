@@ -17,10 +17,20 @@
 	position: relative;
 	text-align: left;
 	overflow: hidden;
-	padding: 30px;
+	padding: 10px;
 	height: 100%;
 	float: left;
 	width: 50%;
+}
+
+.textos_animal p {
+	padding-bottom: 30px;
+	margin: 0px;
+}
+
+.textos_animal h2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .textos_animal .link_encontrei_animal {
