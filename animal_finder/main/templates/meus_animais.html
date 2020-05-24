@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 
-{% block content %}
-  <br>
-  <form action="{%  url 'novo_animal' %}">
-    <input type="submit" value="Cadastrar novo animal" />
-  </form>
-  <br>
+{% block css %}
+  {% load static %}
+  <link href="{% static 'meus_animais_style.css' %}"  rel="stylesheet">
+{% endblock css %}
 
-  <table border="1" width="100%">
+{% block content %}
+    <div class="new_animal">
+      <form action="{%  url 'novo_animal' %}">
+        <button type="submit">Cadastrar novo animal</button>
+      </form>
+    </div>
+  <br>
+  <br><br>
+
+  <table class="table_animal_status" border="1" width="100%">
     <thead>
       <tr>
         <th>Nome</th>
 
         <th>Status</th>
         <th>Lista de contatos</th>
+        <th>Editar cadastro</th>
+        <th>Excluir cadastro</th>
 
       </tr>
       </thead>

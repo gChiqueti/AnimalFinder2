@@ -1,0 +1,27 @@
+.new_animal button {
+  font-size: 30px;
+  display: block;
+  float: right;
+  outline: 0;
+  background: #4CAF50;
+  margin-right: 10px;
+  border: 1px solid #333;
+  /* border-radius: 15px; */
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.new_animal button:hover,.new_animal button:active,.new_animal button:focus {
+  background: #43A047;
+}
+
+.table_animal_status{
+  margin-left: 10px;
+  margin-right: 10px;
+  width:100%
+
+
+}

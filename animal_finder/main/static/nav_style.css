@@ -16,7 +16,6 @@
 .nav li {
   float: left;
   border-right: 1px solid #bbb;
-  height: 70 px;
 }
 
 .nav li a {
@@ -36,4 +35,10 @@
 /* Change the link color to #111 (black) on hover */
 .nav li a:hover {
   background-color: #6DA24F;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav li {
+    float: none;
+  }
 }

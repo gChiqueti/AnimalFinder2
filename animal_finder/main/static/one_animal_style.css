@@ -37,7 +37,6 @@
   -webkit-border-radius: 5px;
   border-radius:6px;
   color: #fff;
-  font-family: 'Oswald';
   font-size: 20px;
   text-decoration: none;
   cursor: poiner;
@@ -53,7 +52,6 @@
 
 /* 	Product Name */
 #container_animal .textos_animal h1{
-	font-family: 'Old Standard TT', serif;
 	display: inline-block;
 	position: relative;
 	font-size: 34px;
@@ -66,7 +64,6 @@
 
 /* The most important information about the product */
 #container_animal .textos_animal > p {
-	font-family: 'Farsan', cursive;
 	text-align: justify;
 	font-size: 20px;
 	color: #444;
