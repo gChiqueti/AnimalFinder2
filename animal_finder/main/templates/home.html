@@ -15,6 +15,13 @@
   <h1>Você viu este animal?</h1>
   {% for animal in animais_cadastrados %}
       <div id="container_animal">
+            <div class="imagem_animal">
+              {% if animal.foto %}
+                {% load static %}
+                <img src="{{ animal.foto.url }}" width=50%>
+              {% endif %}
+            </div>
+
             <div class="textos_animal">
                 <h1>{{animal.nome}}, {{animal.idade}} ano(s)</h1>
                 <h2>Desaparecido em {{animal.cidade_desaparecimento}}
@@ -27,12 +34,7 @@
                 </div>
             </div>
 
-            <div class="imagem_animal">
-              {% if animal.foto %}
-                {% load static %}
-                <img src="{{ animal.foto.url }}" width=50%>
-              {% endif %}
-            </div>
+
       </div>
   {% endfor %}
 
@@ -42,9 +44,9 @@
     {% if animais_cadastrados.has_other_pages %}
       <ul>
     {% if animais_cadastrados.has_previous %}
-      <li><a href="?page={{ animais_cadastrados.previous_page_number }}">&laquo;</a></li>
+      <li><a href="?page={{ animais_cadastrados.previous_page_number }}">&#8810;</a></li>
     {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+      <li class="disabled"><span>&#8810;</span></li>
     {% endif %}
     {% for i in animais_cadastrados.paginator.page_range %}
       {% if animais_cadastrados.number == i %}
@@ -54,9 +56,9 @@
       {% endif %}
     {% endfor %}
     {% if animais_cadastrados.has_next %}
-      <li><a href="?page={{ animais_cadastrados.next_page_number }}">&raquo;</a></li>
+      <li><a href="?page={{ animais_cadastrados.next_page_number }}">&#8811;</a></li>
     {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
+      <li class="disabled"><span>&#8811;</span></li>
     {% endif %}
       </ul>
     {% endif %}
