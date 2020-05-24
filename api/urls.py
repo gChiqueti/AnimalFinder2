@@ -16,7 +16,7 @@ class AnimalSerializer(serializers.ModelSerializer):
 
 # ViewSets define the view behavior.
 class AnimalViewSet(viewsets.ModelViewSet):
-    queryset = Animal.objects.all()
+    queryset = Animal.objects.filter(status=1)
     serializer_class = AnimalSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
