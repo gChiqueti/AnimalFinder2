@@ -1,1 +1,1 @@
-web: gunicorn AnimalFinder2.wsgi --log-file -
+web: gunicorn animal_finder/AnimalFinder2.wsgi --log-file -
