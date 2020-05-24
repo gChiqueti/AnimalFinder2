@@ -27,8 +27,7 @@ def cadastrar_animal(request):
         instance = form.save(commit=False)
         instance.dono = request.user
         instance.save()
-
-        return redirect('home')
+        return redirect("meus_animais")
     return render(request, 'cadastrar_animal.html', {'form': form})
 
 

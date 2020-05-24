@@ -1,0 +1,108 @@
+
+
+#container_animal{
+	box-shadow: 0 15px 30px 1px rgba(128, 0, 65, 0.41);
+	background: rgba(230, 230, 230, 1);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 2% auto;
+	height: 300px;
+	width: 700px;
+	border: 1px solid #333;
+}
+
+/* 	Product details  */
+.textos_animal {
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	padding: 30px;
+	height: 100%;
+	float: left;
+	width: 50%;
+}
+
+.textos_animal .link_encontrei_animal {
+  position:absolute;
+  bottom:5%;
+  text-align: center;
+  left:30%;
+}
+
+.encontrei {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: poiner;
+	box-shadow: 0px 0px 1px #777;
+  border:none;
+	padding: 10px 30px;
+	transition-duration: 0.5s;
+
+}
+
+.encontrei:hover {
+    border: none;
+    background:#1C8F20;
+    box-shadow: 0px 0px 1px #777;
+}
+
+/* 	Product Name */
+#container_animal .textos_animal h1{
+	display: inline-block;
+	position: relative;
+	font-size: 34px;
+	color: #344055;
+	margin: 0;
+
+}
+
+/* The most important information about the product */
+#container_animal .textos_animal > p {
+	text-align: justify;
+	font-size: 20px;
+	color: #333;
+
+}
+
+/* product image  */
+.imagem_animal {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	height: 90%;
+	float: left;
+	width: 40%;
+	margin: 2.5%;
+}
+
+#container_animal img {width: 100%;height: 100%;}
+
+@media only screen and (max-width: 600px) {
+	.imagem_animal {
+		display: block;
+		height: 200px;
+		width: 90%
+	}
+
+	.textos_animal {
+		display: block;
+		width: 90%;
+		padding-bottom: 60px;
+	}
+
+	#container_animal{
+		height: auto;
+		width: 90%;
+		margin: 5% auto;
+	}
+
+	.textos_animal .link_encontrei_animal {
+	  left:35%;
+	}
+
+
+
+}

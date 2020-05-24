@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm
 from .forms import AuthenticationForm
+from django.contrib import messages
 # Create your views here.
 
 # Create your views here.
@@ -15,8 +16,8 @@ def register(response):
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
-            login(request, account)
-            return redirect("home")
+            login(response, account)
+            return redirect("meus_animais")
         else:
             print(form.errors)
             context['registration_form'] = form
@@ -31,7 +32,7 @@ def user_login(request):
      context = {}
      user = request.user
      if user.is_authenticated:
-        return redirect("home")
+        return redirect("meus_animais")
 
      if request.POST:
         form = AuthenticationForm(request.POST)
@@ -41,7 +42,8 @@ def user_login(request):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("home")
+                return redirect("meus_animais")
+
      else:
         form = AuthenticationForm()
 
