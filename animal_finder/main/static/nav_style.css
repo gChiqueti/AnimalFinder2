@@ -16,6 +16,8 @@
 .nav li {
   float: left;
   border-right: 1px solid #bbb;
+  text-align: center;
+  image-orientation: center;
 }
 
 .nav li a {
@@ -35,6 +37,11 @@
 /* Change the link color to #111 (black) on hover */
 .nav li a:hover {
   background-color: #6DA24F;
+}
+
+.nav li.welcome_message {
+  float: right;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

@@ -16,10 +16,10 @@
       <ul>
           <li class="li-logo"><img class="logo" src="/static/ANIMAL_FINDER_LOGO.png" alt="Logo"></li>
       {% if request.user.is_authenticated %}
-          <li><p>Bem vindo, {{request.user.nome}}</p></li>
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
           <li><a href="{% url 'meus_animais' %}">Meus animais</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li class='welcome_message'><p>Bem vindo, {{request.user.nome}}</p></li>
       {% else %}
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'register' %}">Registrar</a></li>

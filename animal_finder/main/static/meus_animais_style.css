@@ -17,11 +17,3 @@
 .new_animal button:hover,.new_animal button:active,.new_animal button:focus {
   background: #43A047;
 }
-
-.table_animal_status{
-  margin-left: 10px;
-  margin-right: 10px;
-  width:100%
-
-
-}
