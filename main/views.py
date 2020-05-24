@@ -61,6 +61,8 @@ def animal_edit(request, id=None):
 def animal_delete(request, id=None):
     animal = get_object_or_404(Animal, id=id)
     if request.method == 'POST':
+        if animal.foto:
+            animal.foto.delete()
         animal.delete()
         return HttpResponseRedirect(reverse('meus_animais'))
     else:
