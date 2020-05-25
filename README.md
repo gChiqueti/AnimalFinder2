@@ -15,16 +15,21 @@ https://github.com/gChiqueti/AnimalFinder2.git
 - Banco de dados: SQLite3
 
 **Instalação no Ubuntu**
+
 OBS: é necessário possuir python3, pip, git e libpq-dev instalado.
 
-clone o repositorio: 
- git clone https://github.com/gChiqueti/AnimalFinder2.git
+clone o repositorio:
+- git clone https://github.com/gChiqueti/AnimalFinder2.git
+
+
 Abra a pasta que possui o arquivo manage.py e requirements.txt
 Instale as dependências citadas no arquivo requirements.txt
- pip3 (ou pip) install -r requirements.txt
- 
+ - pip3 (ou pip) install -r requirements.txt
+
 Execução em máquina local: Execute o seguinte comando
- python3 (ou python) manage.py runserver
+ - python3 (ou python) manage.py runserver
+e então acesse o servidor via
+ - http://127.0.0.1:8000/
 
 **Banco de dados**:
 
@@ -38,8 +43,8 @@ Usuários cadastrados:
 Usuário administrador: para acessar o banco de dados como administrador (apenas para critérios de análise): vá em
 127.0.0.1:8000/admin e faça login com os seguintes dados:
 
-email: a@gmail.com
-senha: a
+- email: a@gmail.com
+- senha: a
 
 **API REST**:
 
