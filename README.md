@@ -3,13 +3,28 @@
 **Site**:
 https://animalfinderproject.herokuapp.com/
 
+**Repositório Git**
+https://github.com/gChiqueti/AnimalFinder2.git
+
 
 **Ferramentas utilizadas**:
 - Linguagem: python3
 - Framework: django3
 - Serviço cloud: Heroku
 - Api rest: djangorestframework
+- Banco de dados: SQLite3
 
+**Instalação no Ubuntu**
+OBS: é necessário possuir python3, pip, git e libpq-dev instalado.
+
+clone o repositorio: 
+ git clone https://github.com/gChiqueti/AnimalFinder2.git
+Abra a pasta que possui o arquivo manage.py e requirements.txt
+Instale as dependências citadas no arquivo requirements.txt
+ pip3 (ou pip) install -r requirements.txt
+ 
+Execução em máquina local: Execute o seguinte comando
+ python3 (ou python) manage.py runserver
 
 **Banco de dados**:
 
@@ -28,4 +43,4 @@ senha: a
 
 **API REST**:
 
-para visualizar o formato json de todos os animais perdidos, basta enviar um request do tipo GET para **127.0.0.1:8000/api/usuario**. A api foi configurada para que seja enviado apenas os animais perdidos, mas pode ser alterado para mostrar todos os animais com uma pequena alteração.
+para visualizar o formato json de todos os animais perdidos, basta enviar um request do tipo GET para **127.0.0.1:8000/api/usuario**. A api foi configurada para que seja enviado apenas os animais perdidos, mas pode ser alterado para mostrar todos os animais facilmente.
