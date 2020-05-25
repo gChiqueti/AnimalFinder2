@@ -4,7 +4,7 @@
   float: right;
   outline: 0;
   background: #4CAF50;
-  margin-right: 10px;
+  margin-right: 5%;
   border: 1px solid #333;
   /* border-radius: 15px; */
   padding: 10px;
@@ -16,4 +16,15 @@
 }
 .new_animal button:hover,.new_animal button:active,.new_animal button:focus {
   background: #43A047;
+}
+
+.table_animal_status {
+  width:90%;
+  margin-left: 5%;
+}
+
+.table_animal_status, .table_animal_status th, .table_animal_status td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
 }
