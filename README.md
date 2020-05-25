@@ -49,3 +49,5 @@ Usuário administrador: para acessar o banco de dados como administrador (apenas
 **API REST**:
 
 para visualizar o formato json de todos os animais perdidos, basta enviar um request do tipo GET para **127.0.0.1:8000/api/usuario**. A api foi configurada para que seja enviado apenas os animais perdidos, mas pode ser alterado para mostrar todos os animais facilmente.
+
+OBS: testado com o software Postman
