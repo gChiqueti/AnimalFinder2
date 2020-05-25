@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    {% load static %}
+    <link href="{% static 'login_style.css' %}"  rel="stylesheet">
+{% endblock css %}
+
 {% block content %}
 <br>
-    <h2>{{user.nome}}</h2>
+  <div class="insert_data">
+    <div class="form-page">
+      <div class="form">
     <form method="post">
         {% csrf_token %}
-        <p>Deseja deletar o cadastro deste animal?</p>
-        <input type="submit" value="Yes">
+        <p>Deseja deletar o cadastro de {{user.nome}}?</p>
+        <button type="submit" name="button">Sim</button>
     </form>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
