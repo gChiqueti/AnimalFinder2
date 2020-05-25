@@ -48,6 +48,9 @@ Usuário administrador: para acessar o banco de dados como administrador (apenas
 
 **API REST**:
 
-para visualizar o formato json de todos os animais perdidos, basta enviar um request do tipo GET para **127.0.0.1:8000/api/animais/**. A api foi configurada para que seja enviado apenas os animais perdidos, mas pode ser alterado para mostrar todos os animais facilmente.
+para visualizar o formato json de todos os animais perdidos, basta enviar um request do tipo GET para **127.0.0.1:8000/api/animais/**. A api foi configurada para que seja enviado apenas os animais perdidos, mas pode ser alterado para mostrar todos os animais facilmente. O retorno conterá também o id de cada animal.
 
+Com o id de cada animal, pode-se atualizar a tabela Contato, que controla os contatos que encontram os animais.
+
+Para atualizar o contato basta um comando POST em **127.0.0.1:8000/api/contato/1/** com o corpo (body) da requisição contendo os campos "nome", "telefone" e "id" (todos sem as aspas). O campo nome e telefone fazer referência à pessoa que encontrou o animal, enquanto o id refere-se ao id do animal obtido pelo comando GET acima.
 OBS: testado com o software Postman
